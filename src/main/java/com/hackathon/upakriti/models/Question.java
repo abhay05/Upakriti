@@ -33,6 +33,10 @@ public class Question {
 		this.updts = updts;
 	}
 	
+	public String getQid() {
+		return qid;
+	}
+	
 	public String getTagid() {
 		return tagid;
 	}
