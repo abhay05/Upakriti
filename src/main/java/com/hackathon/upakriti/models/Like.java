@@ -5,11 +5,13 @@ import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 
 @Entity
 @Table(name="Likes")
-public class Like implements Serializable{
-	private int like;
+@IdClass(LikeCompositeKey.class)
+public class Like{
+	private int likeValue;
 	@Id
 	private String userid;
 	@Id
@@ -17,24 +19,24 @@ public class Like implements Serializable{
 	
 	public Like(){}
 
-	public Like(int like, String userid, String qrid) {
+	public Like(int likeValue, String userid, String qrid) {
 		super();
-		this.like = like;
+		this.likeValue = likeValue;
 		this.userid = userid;
 		this.qrid = qrid;
 	}
 
-	public int getLike() {
-		return like;
+	public int getLikeValue() {
+		return likeValue;
 	}
 
-	public void setLike(int like) {
-		this.like = like;
+	public void setLikeValue(int likeValue) {
+		this.likeValue = likeValue;
 	}
 
 	@Override
 	public String toString() {
-		return "Like [like=" + like + ", userid=" + userid + ", qrid=" + qrid + "]";
+		return "Like [like=" + likeValue + ", userid=" + userid + ", qrid=" + qrid + "]";
 	}
 	
 	

@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import java.sql.Timestamp;
 import java.util.Date;
 import java.util.UUID;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -17,7 +18,7 @@ public class QuestionController {
 	@Autowired
 	QuestionDAOI questionRepo;
 	
-	@PutMapping("add-question")
+	@PostMapping("add-question")
 	public void addQuestion(@RequestBody QuestionForm question) {
 		UUID uuid = UUID.randomUUID();
 		Date date=new Date();
@@ -25,5 +26,10 @@ public class QuestionController {
 		Question ques=new Question(uuid.toString(),question.getTagid(),question.getUserid(),question.getTitle(),question.getDescription(),new Timestamp(date.getTime()),new Timestamp(date.getTime()));
 		
 		questionRepo.save(ques);
+	}
+	
+	@GetMapping("questions-userid/{userid}")
+	public List<Question> getQuestionsByUserid(@PathVariable String userid){
+		return questionRepo.findAllByUserid(userid);
 	}
 }
