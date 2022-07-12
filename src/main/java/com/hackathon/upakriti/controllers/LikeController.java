@@ -24,11 +24,13 @@ public class LikeController {
 		ls.addLike(-1,userid,qrid);
 	}
 	
+	@CrossOrigin("*")
 	@GetMapping("likes/{qrid}")
 	public Optional<Integer> getLikes(@PathVariable String qrid) {
 		return ls.getLikesByQrid(qrid);
 	}
 	
+	@CrossOrigin("*")
 	@GetMapping("dislikes/{qrid}")
 	public Optional<Integer> getDislikes(@PathVariable String qrid) {
 		return ls.getDislikesByQrid(qrid);
