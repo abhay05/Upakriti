@@ -1,5 +1,6 @@
 package com.hackathon.upakriti.services;
 
+import java.util.Optional;
 import org.springframework.stereotype.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -23,9 +24,13 @@ public class LikeService {
 		
 		}
 	
-//	public int getLikesByQrid(String qrid) {
-//		return ldao.getLikesByQrid(qrid);
-//	}
+	public Optional<Integer> getLikesByQrid(String qrid) {
+		return ldao.getLikesByQrid(qrid);
+	}
+	
+	public Optional<Integer> getDislikesByQrid(String qrid){
+		return ldao.getDislikesByQrid(qrid);
+	}
 	
 	
 }

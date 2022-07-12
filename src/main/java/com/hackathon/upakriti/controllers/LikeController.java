@@ -1,5 +1,6 @@
 package com.hackathon.upakriti.controllers;
 
+import java.util.Optional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -23,8 +24,13 @@ public class LikeController {
 		ls.addLike(-1,userid,qrid);
 	}
 	
-//	@GetMapping("likes/{qrid}")
-//	public int getLikes(@PathVariable String qrid) {
-//		return ls.getLikesByQrid(qrid);
-//	}
+	@GetMapping("likes/{qrid}")
+	public Optional<Integer> getLikes(@PathVariable String qrid) {
+		return ls.getLikesByQrid(qrid);
+	}
+	
+	@GetMapping("dislikes/{qrid}")
+	public Optional<Integer> getDislikes(@PathVariable String qrid) {
+		return ls.getDislikesByQrid(qrid);
+	}
 }
