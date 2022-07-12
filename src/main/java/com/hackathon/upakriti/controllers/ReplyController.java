@@ -19,6 +19,7 @@ public class ReplyController {
 	@Autowired
 	ReplyDAOI replyRepo;
 	
+	@CrossOrigin("*")
 	@PostMapping("post-reply")
 	public void postReply(@RequestBody ReplyForm reply) {
 		UUID uuid = UUID.randomUUID();
@@ -27,21 +28,27 @@ public class ReplyController {
 		replyRepo.save(rep);
 	}
 	
+	@CrossOrigin("*")
 	@GetMapping("reply/{rid}")
 	public Optional<Reply> getReply(@PathVariable String rid) {
 		Optional<Reply> rep= replyRepo.findById(rid);
 		return rep;
 	}
 	
+	@CrossOrigin("*")
 	@GetMapping("replies-qid/{qid}")
 	public List<Reply> getRepliesByQid(@PathVariable String qid){
 		List<Reply> allReplies=replyRepo.findAllByQid(qid);
 		return allReplies;
 	}
 	
+	@CrossOrigin("*")
 	@GetMapping("replies-userid/{userid}")
 	public List<Reply> getRepliesByUserid(@PathVariable String userid){
 		return replyRepo.findAllByUserid(userid);
 	}
+	
+	// sorting usinng likes
+	// sorint
 
 }

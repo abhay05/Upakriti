@@ -70,8 +70,8 @@ public class Question {
 
 	@Override
 	public String toString() {
-		return "Question [qid=" + qid + ", tagid=" + tagid + ", userid=" + userid + ", title=" + title
-				+ ", description=" + description + ", crtts=" + crtts + ", updts=" + updts + "]";
+		return "{\"qid\":\"" + qid + "\", \"title\":\"" + title
+				+ "\", \"description\":\"" + description +"\"}";
 	}
 	
 	

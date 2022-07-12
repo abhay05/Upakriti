@@ -16,11 +16,13 @@ public class UserController {
 	@Autowired
 	UserService us;
 	
+	@CrossOrigin("*")
 	@GetMapping("user/{userid}")
 	public Optional<User> getUser(@PathVariable String userid) {
 		return us.getUser(userid);
 	}
 	
+	@CrossOrigin("*")
 	@PostMapping("user")
 	public void postUser(@RequestBody LoginForm login) {
 		us.addUser(login);

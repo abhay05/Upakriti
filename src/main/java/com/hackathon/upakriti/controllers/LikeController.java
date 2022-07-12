@@ -11,18 +11,20 @@ public class LikeController {
 	@Autowired
 	LikeService ls;
 	
+	@CrossOrigin("*")
 	@PostMapping("like/{qrid}/{userid}")
 	public void postLike(@PathVariable String qrid, @PathVariable String userid) {
 		ls.addLike(1,userid,qrid);
 	}
 	
+	@CrossOrigin("*")
 	@PostMapping("dislike/{qrid}/{userid}")
 	public void postDislike(@PathVariable String qrid, @PathVariable String userid) {
 		ls.addLike(-1,userid,qrid);
 	}
 	
-	@GetMapping("likes/{qrid}")
-	public int getLikes(@PathVariable String qrid) {
-		return ls.getLikesByQrid(qrid);
-	}
+//	@GetMapping("likes/{qrid}")
+//	public int getLikes(@PathVariable String qrid) {
+//		return ls.getLikesByQrid(qrid);
+//	}
 }

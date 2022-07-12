@@ -23,7 +23,9 @@ public class LikeService {
 		
 		}
 	
-	public int getLikesByQrid(String qrid) {
-		return ldao.getLikesByQrid(qrid);
-	}
+//	public int getLikesByQrid(String qrid) {
+//		return ldao.getLikesByQrid(qrid);
+//	}
+	
+	
 }
