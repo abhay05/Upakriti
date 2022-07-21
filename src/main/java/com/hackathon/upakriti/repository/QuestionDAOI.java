@@ -11,4 +11,7 @@ import org.springframework.data.jpa.repository.Query;
 public interface QuestionDAOI extends JpaRepository<Question,String>{
 	@Query("select q from Question q where userid = ?1")
 	public List<Question> findAllByUserid(String userid);
+	
+	@Query("select q from Question q")
+	public List<Question> getAllQuestions();
 }

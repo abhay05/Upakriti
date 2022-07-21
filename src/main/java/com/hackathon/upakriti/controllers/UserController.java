@@ -1,5 +1,6 @@
 package com.hackathon.upakriti.controllers;
 
+import com.hackathon.upakriti.forms.UserStats;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
@@ -16,13 +17,21 @@ public class UserController {
 	@Autowired
 	UserService us;
 	
+	@CrossOrigin("*")
 	@GetMapping("user/{userid}")
 	public Optional<User> getUser(@PathVariable String userid) {
 		return us.getUser(userid);
 	}
 	
+	@CrossOrigin("*")
 	@PostMapping("user")
 	public void postUser(@RequestBody LoginForm login) {
 		us.addUser(login);
+	}
+	
+	@CrossOrigin("*")
+	@GetMapping("getUserStats/{userid}")
+	public Optional<UserStats> getUserStats(@PathVariable String userid){
+		return us.getStats(userid);
 	}
 }
